@@ -13,18 +13,18 @@ import pprint
 class GenUL(loader.Module):
     """Инструменты для работы с пользователями"""
 
-    strings = {'name': 'VC.Tools'}
+    strings = {'name': '@VacuumCleanr#Tools'}
  
     @loader.unrestricted
-    async def deanoncmd(self, m: Message):
-        """ - деанонит всех пользователей группы, если хватит привилегий😀"""
-        chatid = utils.get_chat_id(m)
-        
-        from telethon.tl.types import ChannelParticipantsAdmins
-        from asyncio import sleep
-        async for user in m.client.iter_participants(chatid, filter=ChannelParticipantsAdmins):
-            await utils.answer(m, '<code>{0}</code>'.format(user.stringify()))    
-            await sleep(10)
+    #async def deanoncmd(self, m: Message):
+    #    """ - деанонит всех пользователей группы, если хватит привилегий😀"""
+    #   chatid = utils.get_chat_id(m)
+    #  
+    #   from telethon.tl.types import ChannelParticipantsAdmins
+    #   from asyncio import sleep
+    #   async for user in m.client.iter_participants(chatid, filter=ChannelParticipantsAdmins):
+    #      await utils.answer(m, '<code>{0}</code>'.format(user.stringify()))    
+    #        await sleep(10)
             
     async def listview(self, list):
         i = 0
@@ -32,8 +32,8 @@ class GenUL(loader.Module):
         listview = f' ╭︎ 🗂 <b>Список участников:</b>\n'
         for user in list:
            i += 1
-           if cusers == i: listview += f' ╰︎ <b>{i}</b>. {user}\n' # footer
-           else: listview += f' ├︎ <b>{i}</b>. {user}\n' # middle 
+           if cusers == i: listview += f'╰︎ <b>{i}</b>. {user}\n' # footer
+           else: listview += f'├︎ <b>{i}</b>. {user}\n' # middle 
         return listview   
         
     @loader.unrestricted
